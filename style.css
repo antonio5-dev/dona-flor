@@ -1,0 +1,383 @@
+/* -------------------------------------------------
+   Salão de Beleza Dona Flor – estilo principal
+   ------------------------------------------------- */
+
+/* ---------- Variáveis de cores (paleta “beleza”) ---------- */
+:root {
+    --primary:   #c2185b;   /* Magenta intenso – botões, cabeçalho */
+    --secondary: #ffab40;   /* Laranja suave – hover, destaques */
+    --accent:    #ffeb3b;   /* Amarelo crosta – detalhes, ícones */
+    --bg:        #fff8e1;   /* Fundo claro/amarelado – áreas de conteúdo */
+    --text-primary: #212121;
+    --text-muted:   #555555;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html { font-size: 16px; }
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif; /* tipografia mantida */
+    background-color: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ---------- Containers ---------- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 1rem 0;
+    position: relative;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    height: 48px;
+}
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav a:hover {
+    color: var(--secondary);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('/images/sdf1.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+.hero-overlay { /* caso queira escurecer ainda mais */
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: .5rem;
+    color: var(--accent);
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #fff;
+    padding: .75rem 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color .3s, border-color .3s;
+}
+.btn-primary:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+/* ---------- Sections ---------- */
+.section {
+    padding: 4rem 0;
+}
+.bg-light {
+    background-color: #f9f9f9;
+}
+.section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+/* ---------- Cards (serviços) ---------- */
+.cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+.card h3 {
+    margin-bottom: .5rem;
+    color: var(--primary);
+}
+.card p {
+    color: var(--text-muted);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    background-color: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: .9rem;
+}
+
+/* ---------- Chatbot ---------- */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    transition: background-color .3s;
+}
+.chatbot-toggle:hover {
+    background-color: var(--secondary);
+}
+
+/* Caixa do chatbot (inicialmente oculta) */
+.chatbot {
+    position: fixed;
+    bottom: 80px;
+    right: 1.5rem;
+    width: 320px;
+    max-height: 420px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: visibility .2s, opacity .2s, transform .2s;
+}
+.chatbot.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.chatbot-header {
+    background-color: var(--primary);
+    color: #fff;
+    padding: .75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatbot-header button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.chatbot-body {
+    flex: 1;
+    padding: .75rem 1rem;
+    overflow-y: auto;
+}
+.message {
+    margin-bottom: .75rem;
+    line-height: 1.4;
+}
+.message.bot {
+    color: var(--primary);
+}
+.message.user {
+    text-align: right;
+    color: var(--secondary);
+}
+.chatbot-footer {
+    padding: .5rem 1rem;
+    display: flex;
+    gap: .5rem;
+    border-top: 1px solid #eee;
+}
+.chatbot-footer input {
+    flex: 1;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.chatbot-footer button {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.chatbot-footer button:hover {
+    background-color: var(--secondary);
+}
+
+/* ---------- Hamburger button ---------- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+}
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+}
+/* Animação X ao abrir */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+    /* Header */
+    .header-inner {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    /* Nav: oculto por padrão, abre como dropdown */
+    .nav {
+        display: none;
+        position: absolute;
+        top: 72px;          /* altura aproximada do header */
+        left: 0;
+        right: 0;
+        background-color: var(--primary);
+        z-index: 100;
+        padding: 1rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
+    .nav.open {
+        display: block;
+    }
+    .nav ul {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+    }
+    .nav ul li a {
+        display: block;
+        padding: .75rem 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+        font-size: 1rem;
+    }
+    .nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Hero */
+    .hero {
+        height: auto;
+        min-height: 55vh;
+        padding: 4rem 1rem;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-logo {
+        width: 110px;
+    }
+
+    /* Cards */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sections */
+    .section {
+        padding: 2.5rem 0;
+    }
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Chatbot */
+    .chatbot {
+        width: calc(100vw - 2rem);
+        right: 1rem;
+        left: 1rem;
+        bottom: 80px;
+    }
+}
+
+.hero-logo {
+
+  width: 160px;
+
+  margin-bottom: 20px;
+
+  border-radius: 80px;
+}

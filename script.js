@@ -1,0 +1,83 @@
+/* -------------------------------------------------
+   Salão de Beleza Dona Flor – script principal
+   ------------------------------------------------- */
+
+/* ==== MENU HAMBURGUER ==== */
+const hamburger = document.getElementById('hamburger');
+const mainNav   = document.getElementById('main-nav');
+
+hamburger.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+});
+
+// Fechar o menu ao clicar em um link
+mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+    });
+});
+
+/* ==== CHATBOT ==== */
+const chatToggle   = document.getElementById('chatbot-toggle');
+const chatBox      = document.getElementById('chatbot');
+const chatClose    = document.getElementById('chatbot-close');
+const chatBody     = document.getElementById('chatbot-body');
+const chatInput    = document.getElementById('chatbot-input');
+const chatSendBtn  = document.getElementById('chatbot-send');
+
+/* abrir/fechar chatbot */
+chatToggle.addEventListener('click', () => chatBox.classList.add('active'));
+chatClose.addEventListener('click', () => chatBox.classList.remove('active'));
+
+/* enviar mensagem */
+function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    // Mensagem do usuário
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user';
+    userMsg.textContent = text;
+    chatBody.appendChild(userMsg);
+    chatInput.value = '';
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Resposta automática (simples)
+    setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'message bot';
+        botMsg.textContent = gerarRespostaAutomatica(text);
+        chatBody.appendChild(botMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 800);
+}
+
+/* Eventos de envio */
+chatSendBtn.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+
+/* Função de resposta automática (pode ser ampliada) */
+function gerarRespostaAutomatica(entrada) {
+    const lower = entrada.toLowerCase();
+
+    if (lower.includes('horário') || lower.includes('abertura')) {
+        return 'Nosso horário de funcionamento é de segunda a sábado, das 9h às 20h.';
+    }
+    if (lower.includes('agendar') || lower.includes('marcar')) {
+        return 'Para agendar, ligue para (11) 98765‑4321 ou envie um WhatsApp para (11) 98765‑4321.';
+    }
+    if (lower.includes('preço') || lower.includes('valor')) {
+        return 'Nossos preços variam conforme o serviço. Consulte a página de Serviços ou entre em contato para um orçamento personalizado.';
+    }
+    if (lower.includes('promoção') || lower.includes('desconto')) {
+        return 'Confira nossas promoções mensais no site!';
+    }
+    // fallback genérico
+    return 'Obrigado pela mensagem! Em breve retornaremos.';
+}

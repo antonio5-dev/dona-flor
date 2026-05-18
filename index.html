@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Estética Dona Flor – Elegância que transforma</title>
+
+    <!-- SEO básico -->
+    <meta name="description"
+          content="Dona Flor oferece cortes, coloração, tratamentos e maquiagem. Agende seu horário e sinta a diferença!">
+    <meta name="author" content="Salão Dona Flor">
+
+    <!-- Favicon (logo placeholder) -->
+    <link rel="icon" href="/images/sdf-logo.png" type="image/png">
+
+    <!-- Folha de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <img src="/images/sdf-logo.png" alt="Logo Salão Dona Flor" class="logo">
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="main-nav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+
+            <img src="/images/sdf-logo.png" alt="Logo Salão Dona Flor" class="hero-logo">
+
+            <h1>Centro de Estética Dona Flor</h1>
+            <p>Realce sua beleza com quem entende do assunto.</p>
+            <a href="#services" class="btn-primary">Conheça nossos serviços</a>
+        </div>
+    </section>
+
+    <!-- ==================== SERVIÇOS ==================== -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Corte Feminino</h3>
+                    <p>Estilo moderno ou clássico, com atenção aos detalhes.</p>
+                </article>
+                <article class="card">
+                    <h3>Coloração</h3>
+                    <p>Técnicas avançadas para tons vibrantes ou naturais.</p>
+                </article>
+                <article class="card">
+                    <h3>Tratamento Capilar</h3>
+                    <p>Reconstrução, hidratação e nutrição profunda.</p>
+                </article>
+                <article class="card">
+                    <h3>Maquiagem</h3>
+                    <p>Do dia a dia ao evento especial, com produtos de alta qualidade.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOBRE ==================== -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <h2>Sobre a Dona Flor</h2>
+            <p>
+                Fundado em 2010, o Salão de Beleza Dona Flor nasceu da paixão pela arte de transformar
+                pessoas. Nossa equipe é composta por profissionais certificados, que acompanham as
+                tendências internacionais e utilizam produtos premium para garantir resultados
+                excepcionais.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== CONTATO ==================== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Fale Conosco</h2>
+            <p>Telefone: <strong>(11) 98765‑4321</strong></p>
+            <p>E‑mail: <strong>contato@donaflor.com.br</strong></p>
+            <p>Endereço: Rua das Flores, 123 – São Paulo/SP</p>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>2026 DevStudio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== CHATBOT ==================== -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-header">
+            <span>Atendimento</span>
+            <button id="chatbot-close" aria-label="Fechar chat">✖</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="message bot">Olá! Como posso ajudar?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." />
+            <button id="chatbot-send">Enviar</button>
+        </div>
+    </div>
+
+    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Abrir chat">
+        💬
+    </button>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="script.js"></script>
+</body>
+</html>
