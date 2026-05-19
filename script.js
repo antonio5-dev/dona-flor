@@ -67,17 +67,17 @@ function gerarRespostaAutomatica(entrada) {
     const lower = entrada.toLowerCase();
 
     if (lower.includes('horário') || lower.includes('aberto')) {
-        return 'Nosso horário de funcionamento é de segunda a sábado, das 9h às 20h.';
+        return 'Nosso horário de funcionamento é de segunda a sábado, das 9h às 20h. Agende seu Atendimento! 😄';
     }
     if (lower.includes('agendar') || lower.includes('marcar')) {
-        return 'Para agendar, envie um WhatsApp para (11) 98765‑4321.';
+        return 'Para agendar, envie um WhatsApp para (71) 99999‑9999. Aguardamos seu Contato! 😄';
     }
     if (lower.includes('preço') || lower.includes('valor')) {
-        return 'Nossos preços variam conforme o serviço. Por favor, consulte a página de Serviços aqui no nosso Site.';
+        return 'Nossos preços variam conforme o serviço. Por favor, consulte a página de Serviços aqui no nosso Site. 😄';
     }
     if (lower.includes('endereço') || lower.includes('localização')) {
-        return 'Estamos na Praça de Armação, Salvador. Confira na Página Localização aqui no nosso Site.';
+        return 'Estamos na Praça de Armação, em Salvador. Confira na Página Localização aqui no nosso Site, de lá você pode acessar a localização exata no seu celular, pelo Google Maps! 😄 .';
     }
     // fallback genérico
-    return 'Obrigado pela mensagem! Em breve retornaremos.';
+    return 'Obrigado pelo Contato! 😄';
 }
