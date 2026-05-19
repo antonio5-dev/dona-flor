@@ -79,5 +79,5 @@ function gerarRespostaAutomatica(entrada) {
         return 'Estamos na Praça de Armação, em Salvador. Confira na Página Localização aqui no nosso Site, de lá você pode acessar a localização exata no seu celular, pelo Google Maps! 🌸';
     }
     // fallback genérico
-    return 'Obrigado pelo Contato! 😄';
+    return 'Obrigada pelo Contato! 😄';
 }
