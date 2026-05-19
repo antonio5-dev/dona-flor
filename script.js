@@ -76,7 +76,7 @@ function gerarRespostaAutomatica(entrada) {
         return 'Nossos preços variam conforme o serviço. Por favor, consulte a página de Serviços aqui no nosso Site. 😄';
     }
     if (lower.includes('endereço') || lower.includes('localização')) {
-        return 'Estamos na Praça de Armação, em Salvador. Confira na Página Localização aqui no nosso Site, de lá você pode acessar a localização exata no seu celular, pelo Google Maps! 😄 .';
+        return 'Estamos na Praça de Armação, em Salvador. Confira na Página Localização aqui no nosso Site, de lá você pode acessar a localização exata no seu celular, pelo Google Maps! 😄';
     }
     // fallback genérico
     return 'Obrigado pelo Contato! 😄';
