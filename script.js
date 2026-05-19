@@ -66,17 +66,17 @@ chatInput.addEventListener('keypress', (e) => {
 function gerarRespostaAutomatica(entrada) {
     const lower = entrada.toLowerCase();
 
-    if (lower.includes('horário') || lower.includes('abertura')) {
+    if (lower.includes('horário') || lower.includes('aberto')) {
         return 'Nosso horário de funcionamento é de segunda a sábado, das 9h às 20h.';
     }
     if (lower.includes('agendar') || lower.includes('marcar')) {
-        return 'Para agendar, ligue para (11) 98765‑4321 ou envie um WhatsApp para (11) 98765‑4321.';
+        return 'Para agendar, envie um WhatsApp para (11) 98765‑4321.';
     }
     if (lower.includes('preço') || lower.includes('valor')) {
-        return 'Nossos preços variam conforme o serviço. Consulte a página de Serviços ou entre em contato para um orçamento personalizado.';
+        return 'Nossos preços variam conforme o serviço. Por favor, consulte a página de Serviços aqui no nosso Site.';
     }
-    if (lower.includes('promoção') || lower.includes('desconto')) {
-        return 'Confira nossas promoções mensais no site!';
+    if (lower.includes('endereço') || lower.includes('localização')) {
+        return 'Estamos na Praça de Armação, Salvador. Confira na Página Localização aqui no nosso Site.';
     }
     // fallback genérico
     return 'Obrigado pela mensagem! Em breve retornaremos.';
