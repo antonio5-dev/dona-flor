@@ -40,7 +40,9 @@ body {
     background-color: var(--primary);
     color: #fff;
     padding: 1rem 0;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .header-inner {
     display: flex;
