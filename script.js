@@ -70,7 +70,7 @@ function gerarRespostaAutomatica(entrada) {
         return 'Nosso horário de funcionamento é de segunda a sábado, das 9h às 20h. Agende seu Atendimento! 😄';
     }
     if (lower.includes('agendar') || lower.includes('marcar')) {
-        return 'Para agendar, clique em Agende pelo WhatsApp aqui no nosso Site. Você será direcionada direto para nosso Atendimento no WhatsApp. Aguardamos seu Contato! 😄';
+        return 'Para agendar, clique em [Agende pelo WhatsApp] aqui no nosso Site. Você será direcionada direto para nosso Atendimento no WhatsApp. Aguardamos seu Contato! 😄';
     }
     if (lower.includes('preço') || lower.includes('valor')) {
         return 'Nossos preços variam conforme o serviço. Por favor, consulte a página de Serviços aqui no nosso Site. 😄';
