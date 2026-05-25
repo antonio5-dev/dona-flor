@@ -4,9 +4,9 @@
 
 /* ---------- Variáveis de cores (paleta “beleza”) ---------- */
 :root {
-    --primary:   #c2185b;   /* Magenta intenso – botões, cabeçalho */
-    --secondary: #ffab40;   /* Laranja suave – hover, destaques */
-    --accent:    #ffeb3b;   /* Amarelo crosta – detalhes, ícones */
+    --primary:   #f87c97;   /* Magenta intenso – botões, cabeçalho */
+    --secondary: #ff2fba;   /* Laranja suave – hover, destaques */
+    --accent:    #f5e979;   /* Amarelo crosta – detalhes, ícones */
     --bg:        #fff8e1;   /* Fundo claro/amarelado – áreas de conteúdo */
     --text-primary: #212121;
     --text-muted:   #555555;
@@ -22,7 +22,7 @@
 }
 html { font-size: 16px; }
 body {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif; /* tipografia mantida */
+    font-family: 'Elms Sans', Arial, Helvetica, sans-serif; /* tipografia mantida */
     background-color: var(--bg);
     color: var(--text-primary);
     line-height: 1.6;
@@ -51,6 +51,8 @@ body {
 }
 .logo {
     height: 48px;
+    font-family: 'Open Sans';
+    margin-top: 5px;
 }
 .nav ul {
     list-style: none;
@@ -63,30 +65,32 @@ body {
     font-weight: 500;
 }
 .nav a:hover {
-    color: var(--secondary);
+    color: var(--accent);
 }
 
 /* ---------- Hero ---------- */
 .hero {
     position: relative;
     height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                url('/images/sdf1.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(255, 227, 227, 0.461), rgba(0, 0, 0, 0.28)),
+                url('/images/sdf9.jpg') center/cover no-repeat;
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-align: center;
+    justify-content: flex-end;
+
+    padding-right: 0;
 }
-.hero-overlay { /* caso queira escurecer ainda mais */
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.3);
-}
+
 .hero-content {
     position: relative;
     z-index: 1;
+
+    text-align: center;
+
+    margin-right: 180px;
 }
+
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: .5rem;
@@ -94,22 +98,28 @@ body {
 }
 .hero-content p {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 30px;
+    color: white;
 }
 .btn-primary {
     display: inline-block;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: #fff;
     padding: .75rem 1.5rem;
     border: 2px solid var(--primary);
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color .3s, border-color .3s;
+    transition-duration: 0.3s;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px var(--secondary);
+    opacity: 0.9;
 }
 .btn-primary:hover {
     background-color: var(--secondary);
     border-color: var(--secondary);
+    transform: scale(1.02);
+    opacity: 1;
 }
 
 /* ---------- Sections ---------- */
@@ -122,8 +132,37 @@ body {
 .section h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--primary);
+    color: var(--secondary);
     font-size: 2rem;
+}
+
+.section h3 {
+    color: var(--primary);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section p {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.about-social {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.about-social a {
+  font-size: 50px;
+  color: var(--secondary);
+  text-shadow: var(--primary);
+  transition-duration: 0.3s;
+}
+
+.about-social a:hover {
+  transform: scale(1.2);
 }
 
 /* ---------- Cards (serviços) ---------- */
@@ -145,11 +184,15 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 .card h3 {
-    margin-bottom: .5rem;
+    margin-bottom: .8rem;
+    margin-top: .8rem;
     color: var(--primary);
 }
 .card p {
     color: var(--text-muted);
+    margin-bottom: .8rem;
+    margin-top: .8rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* ---------- Footer ---------- */
@@ -158,7 +201,8 @@ body {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    font-size: .9rem;
+    font-size: 1.5rem;
+    font-family: 'Patrick Hand', sans-serif;
 }
 
 /* ---------- Chatbot ---------- */
@@ -175,11 +219,13 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    transition: background-color .3s;
+    transition-duration: 0.3s;
     z-index: 9999;
 }
 .chatbot-toggle:hover {
     background-color: var(--secondary);
+    box-shadow: 0 0 20px var(--secondary);
+    transform: scale(1.05);
 }
 
 /* Caixa do chatbot (inicialmente oculta) */
@@ -339,20 +385,39 @@ body {
     }
 
     /* Hero */
+    @media (max-width: 768px) {
+
     .hero {
-        height: auto;
-        min-height: 55vh;
-        padding: 4rem 1rem;
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 6rem 1rem 4rem;
+
+    text-align: center;
+    padding: rem 1rem 18rem;
     }
+    
+
+    .hero-content {
+        margin: 0;
+        width: 100%;
+    }
+
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         line-height: 1.2;
     }
+
     .hero-content p {
         font-size: 1rem;
     }
+
     .hero-logo {
-        width: 110px;
+        width: 120px;
+    }
+
     }
 
     /* Cards */
@@ -402,6 +467,7 @@ body {
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     margin-bottom: 12px;
+    opacity: 0.8;
 }
 
 .hero-content a[href*="wa.me"] button::before {
@@ -413,11 +479,9 @@ body {
 .hero-content a[href*="wa.me"] button:hover {
     background-color: #1ebe5a;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-}
-
-.hero-content a[href*="wa.me"] button:active {
-    transform: translateY(0);
+    box-shadow: 0 6px 20px rgba(48, 255, 124, 0.5);
+    transform: scale(1.02);
+    opacity: 1;
 }
 
 /* Remove o sublinhado do link que envolve o botão */
